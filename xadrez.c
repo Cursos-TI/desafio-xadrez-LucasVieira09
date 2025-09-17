@@ -11,6 +11,7 @@ int main() {
     int torre = 5;
     int bispo = 5;
     int rainha = 8;
+    int cavalo = 1;
 
     // MOVIMENTO DA TORRE (DIREITA).
     printf("=== Movimento da Torre ===\n");
@@ -19,6 +20,7 @@ int main() {
     }
     
 // MOVIMENTO DO BISPO (CIMA E DIREITA).
+    printf("\n");
     printf("=== Movimento do Bispo ===\n");
     int i = 1;
     while (i <= bispo){
@@ -27,12 +29,23 @@ int main() {
     }
     
 // MOVIMENTO DA RAINHA (ESQUERDA)
+    printf("\n");
     printf("=== Movimento da Rainha ===\n");
     int j = 1;
     do {
         printf("Esquerda! \n");
         j++;
     } while (j <= rainha);
+
+// MOVIMENTO DO CAVALO (BAIXO, BAIXO, ESQUERDA)
+    printf("\n");
+    printf("=== Movimento do Cavalo ===\n");
+    while (cavalo--) {
+        for (int k = 0; k < 2; k++) {
+            printf("Baixo! \n");
+        }
+        printf("Esquerda! \n");
+    }
 
 
    
