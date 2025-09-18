@@ -6,46 +6,71 @@
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
 // DESAFIO DO MOVIMENTO DAS PEÇAS DE XADREZ.
-int main() {
-// VARIÁVEIS
+//=== FUNÇÕES RECURSIVAS ===
+
+//=== MOVIMENTO DA TORRE ===
+void moverTorre(int casas) {
+    if (casas == 0) return;
+    printf("DIREITA! \n");
+    moverTorre(casas - 1);
+}
+
+//=== MOVIMENTO DA RAINHA ===
+void moverRainha(int casas) {
+    if (casas == 0) return;
+    printf("ESQUERDA! \n");
+    moverRainha(casas - 1);
+}
+
+//=== MOVIMENTO DO BISPO ===
+void moverBispo(int casas) {
+    if (casas == 0) return;
+// LOOPS ANINHADOS. (VERTICAL DEPOIS HORIZONTAL)
+    for (int v = 0; v < 1; v++) {
+        printf("CIMA! ");
+    for (int h = 0; h < 1; h++) {
+        printf("DIREITA! \n");
+        }
+    }
+    moverBispo(casas - 1); // CHAMADA RECURSIVA.
+}
+
+//=== MOVIMENTO DO CAVALO ===
+void moverCavalo() {
+    for (int i = 0; i < 2; i++) {
+        printf("CIMA! \n");
+    }
+    for (int j = 0; j < 1; j++) {
+        printf("DIREITA! \n");
+    }
+}
+
+int main () {
+//=== VARIÁVEIS ===
+
     int torre = 5;
     int bispo = 5;
     int rainha = 8;
-    int cavalo = 1;
 
-    // MOVIMENTO DA TORRE (DIREITA).
+// ### TORRE ###
     printf("=== Movimento da Torre ===\n");
-    for (int i = 1; i <= torre; i++){
-        printf("DIREITA! \n");
-    }
-    
-// MOVIMENTO DO BISPO (CIMA E DIREITA).
+    moverTorre(torre);
+
+// ### BISPO ###
     printf("\n");
     printf("=== Movimento do Bispo ===\n");
-    int i = 1;
-    while (i <= bispo){
-        printf("Cima, Direita! \n");
-        i++;
-    }
-    
-// MOVIMENTO DA RAINHA (ESQUERDA)
+    moverBispo(bispo);
+
+// ### RAINHA ###
     printf("\n");
     printf("=== Movimento da Rainha ===\n");
-    int j = 1;
-    do {
-        printf("Esquerda! \n");
-        j++;
-    } while (j <= rainha);
+    moverRainha(rainha);
 
-// MOVIMENTO DO CAVALO (BAIXO, BAIXO, ESQUERDA)
+// ### CAVALO ###
     printf("\n");
     printf("=== Movimento do Cavalo ===\n");
-    while (cavalo--) {
-        for (int k = 0; k < 2; k++) {
-            printf("Baixo! \n");
-        }
-        printf("Esquerda! \n");
-    }
+    moverCavalo();
+
 
 
    
